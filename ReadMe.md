@@ -31,18 +31,38 @@
   * vstest            Run Microsoft Test Engine (VSTest) commands.
   * workload          Manage optional workloads.
 
+**Visual studio code editor configuration**
+* enable async completion
+* enable import completion
+* Organize imports on format
+* Compact view off
 
+**Visual studio code extensions :**
+* C# for visual studio code.
+* C# extensions.
+
+
+**create a new dotnet solution**
 * dotnet new sln
+
+**create a new dotnet webapi**
 * dotnet new webapi -o API
+
+**add the api cproj project into the solution file**
 * dotnet sln add API
 
+**run the project**
 * dotnet run --project .\API\API.csproj
+
+**add dev certificate**
 * dotnet dev-certs https --trust
 
-* dotnet tool install --global 
-    dotnet-ef --version 7.0.0 
-* dotnet ef database update --project .\API\API.csproj
+**instal entity framework globally**
+* dotnet tool install --global
+	dotnet-ef --version 7.0.0
 
+**up the migration**
+* dotnet ef database update --project .\API\API.csproj
 
 **Create migrations**
 * dotnet ef migrations add InitialCreate -o Data/Migrations --project .\API\API.csproj
