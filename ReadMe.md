@@ -67,6 +67,9 @@ https://crashedmind.github.io/PlantUMLHitchhikersGuide/index.html
 **Add dev certificate**
 * dotnet dev-certs https --trust
 
+**Swagger endpoint**
+* https://localhost:7001/swagger/index.html
+
 **Instal entity framework globally**
 * dotnet tool install --global dotnet-ef --version 7.0.0
 
@@ -85,3 +88,4 @@ npm install -g @angular/cli
 
 **serve angular project**
 ng serve open
+
