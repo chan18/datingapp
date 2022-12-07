@@ -31,6 +31,11 @@
         vstest Run Microsoft Test Engine (VSTest) commands.
         workload Manage optional workloads.
 
+**UMl diagrams**
+https://crashedmind.github.io/PlantUMLHitchhikersGuide/index.html
+
+## Dotnet CLI
+
 **Visual studio code editor configuration**
 * enable async completion
 * enable import completion
@@ -53,6 +58,12 @@
 **Run the project**
 * dotnet run --project .\API\API.csproj
 
+**Run the project with different lunch profile(https)**
+* dotnet run --project .\API\API.csproj -lp https
+
+**Clean the https certificate**
+* dotnet dev-certs https --clean
+
 **Add dev certificate**
 * dotnet dev-certs https --trust
 
@@ -66,8 +77,11 @@
 * dotnet ef migrations add InitialCreate -o Data/Migrations --project .\API\API.csproj
 
 Update Migrations dotnet ef database update --project .\API\API.csproj
-Angular
 
+## Angular
+
+**instal angualr cli**
 npm install -g @angular/cli
 
+**serve angular project**
 ng serve open
