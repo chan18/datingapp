@@ -86,13 +86,13 @@ https://crashedmind.github.io/PlantUMLHitchhikersGuide/index.html
 
 ## Entity Framework CLi
 
-dotnet ef migrations add
-dotnet ef migrations list
-dotnet ef migrations script
-dotnet ef dbcontext info
-dotnet ef dbcontext scaffold
-dotnet ef database drop
-dotnet ef database update
+dotnet ef migrations add  
+dotnet ef migrations list  
+dotnet ef migrations script  
+dotnet ef dbcontext info  
+dotnet ef dbcontext scaffold  
+dotnet ef database drop  
+dotnet ef database update  
 
 **Instal entity framework globally**
 * dotnet tool install --global dotnet-ef --version 7.0.0
