@@ -86,13 +86,13 @@ https://crashedmind.github.io/PlantUMLHitchhikersGuide/index.html
 
 ## Entity Framework CLi
 
-dotnet ef migrations add
-dotnet ef migrations list
-dotnet ef migrations script
-dotnet ef dbcontext info
-dotnet ef dbcontext scaffold
-dotnet ef database drop
-dotnet ef database update
+dotnet ef migrations add  
+dotnet ef migrations list  
+dotnet ef migrations script  
+dotnet ef dbcontext info  
+dotnet ef dbcontext scaffold  
+dotnet ef database drop  
+dotnet ef database update  
 
 **Instal entity framework globally**
 * dotnet tool install --global dotnet-ef --version 7.0.0
@@ -108,9 +108,35 @@ Update Migrations dotnet ef database update --project .\API\API.csproj
 
 ## Angular
 
+**node version**
+* node --version
+
+**npm version**
+* npm --version
+
 **instal angualr cli**
-npm install -g @angular/cli
+* npm install -g @angular/cli
+
+**angular cli version**
+* ng version
+
+**create angular app**
+* ng new client
 
 **serve angular project**
-ng serve open
+* ng serve open
+
+**angular.json**
+* angular config
+
+**tsconfig.json**
+* typescript config
+
+**bootstrap**
+https://getbootstrap.com/docs/5.2/components/dropdowns/
+https://valor-software.com/ngx-bootstrap/#/
+https://valor-software.com/ngx-bootstrap/#/documentation
+
+* npm install bootstrap@5
+* npm install font-awesome
 
