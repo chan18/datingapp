@@ -80,6 +80,9 @@ https://crashedmind.github.io/PlantUMLHitchhikersGuide/index.html
 **Controllers**
 * Conventionally controllers are pluralized 
 
+**global dotnet json file**
+* dotnet new globaljson
+
 
 ## Entity Framework CLi
 
