@@ -108,9 +108,26 @@ Update Migrations dotnet ef database update --project .\API\API.csproj
 
 ## Angular
 
+**node version**
+* node --version
+
+**npm version**
+* npm --version
+
 **instal angualr cli**
-npm install -g @angular/cli
+* npm install -g @angular/cli
+
+**angular cli version**
+* ng version
+
+**create angular app**
+* ng new client
 
 **serve angular project**
-ng serve open
+* ng serve open
 
+**angular.json**
+* angular config
+
+**tsconfig.json**
+* typescript config
