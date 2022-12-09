@@ -231,4 +231,4 @@ _Pvt_Extensions
 # FAKE - F# Make
 .fake/
 
-API/
+API/appsettings.json
