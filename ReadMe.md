@@ -131,3 +131,12 @@ Update Migrations dotnet ef database update --project .\API\API.csproj
 
 **tsconfig.json**
 * typescript config
+
+**bootstrap**
+https://getbootstrap.com/docs/5.2/components/dropdowns/
+https://valor-software.com/ngx-bootstrap/#/
+https://valor-software.com/ngx-bootstrap/#/documentation
+
+* npm install bootstrap@5
+* npm install font-awesome
+
