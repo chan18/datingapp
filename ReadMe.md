@@ -70,14 +70,36 @@ https://crashedmind.github.io/PlantUMLHitchhikersGuide/index.html
 **Swagger endpoint**
 * https://localhost:7001/swagger/index.html
 
+**restore nuget packages**
+* dotnet restore
+
+**Nuget Packages**
+* Entity Framework Core Design
+* Entity Framework SQlLite
+
+**Controllers**
+* Conventionally controllers are pluralized 
+
+
+## Entity Framework CLi
+
+dotnet ef migrations add
+dotnet ef migrations list
+dotnet ef migrations script
+dotnet ef dbcontext info
+dotnet ef dbcontext scaffold
+dotnet ef database drop
+dotnet ef database update
+
 **Instal entity framework globally**
 * dotnet tool install --global dotnet-ef --version 7.0.0
 
-**Up the migration**
-* dotnet ef database update --project .\API\API.csproj
-
 **Create migrations**
 * dotnet ef migrations add InitialCreate -o Data/Migrations --project .\API\API.csproj
+
+
+**Up/Apply the migration**
+* dotnet ef database update --project .\API\API.csproj
 
 Update Migrations dotnet ef database update --project .\API\API.csproj
 
