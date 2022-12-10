@@ -149,3 +149,8 @@ https://valor-software.com/ngx-bootstrap/#/documentation
 * ng g c <componentname>
 * ng g c --dry-run
 * ng g c --skip-tests --dry-run
+
+**creat a service**
+* ng g s <foldername>/<servicename>
+* ng g s <foldername>/<servicename> --skip-tests --dry-run
+
