@@ -89,8 +89,10 @@ https://crashedmind.github.io/PlantUMLHitchhikersGuide/index.html
 dotnet ef migrations add  
 dotnet ef migrations list  
 dotnet ef migrations script  
+
 dotnet ef dbcontext info  
 dotnet ef dbcontext scaffold  
+
 dotnet ef database drop  
 dotnet ef database update  
 
@@ -100,11 +102,11 @@ dotnet ef database update
 **Create migrations**
 * dotnet ef migrations add InitialCreate -o Data/Migrations --project .\API\API.csproj
 
+**update migrations**
+update migrations dotnet ef database update --project .\API\API.csproj
 
 **Up/Apply the migration**
 * dotnet ef database update --project .\API\API.csproj
-
-Update Migrations dotnet ef database update --project .\API\API.csproj
 
 ## Angular
 
@@ -140,3 +142,4 @@ https://valor-software.com/ngx-bootstrap/#/documentation
 * npm install bootstrap@5
 * npm install font-awesome
 
+ 
