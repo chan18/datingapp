@@ -1,1 +1,1 @@
-dotnet watch run --project .\API\API.csproj 
+dotnet watch --no-hot-reload run --project .\API\API.csproj 
