@@ -3,6 +3,7 @@ using System.Text;
 using API.Data;
 using API.DTOs;
 using API.Entities;
+using API.Interface;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
@@ -11,10 +12,12 @@ namespace API.Controllers;
 public class AccountsController : BaseApiController
 {
     private readonly DataContext context;
+    private readonly ITokenService tokenService;
 
-    public AccountsController(DataContext context)
+    public AccountsController(DataContext context, ITokenService tokenService)
     {
         this.context = context;
+        this.tokenService = tokenService;
     }
 
     [HttpPost("register")] // POST: api/accounts/register
@@ -41,7 +44,7 @@ public class AccountsController : BaseApiController
     }
 
     [HttpPost("login")]
-    public async Task<ActionResult<AppUser>> Login(LoginDto loginDto)
+    public async Task<ActionResult<UserDto>> Login(LoginDto loginDto)
     {
         var user = await context.Users.SingleOrDefaultAsync(x => x.UserName == loginDto.Username);        
         
@@ -60,7 +63,11 @@ public class AccountsController : BaseApiController
             }
         }        
 
-        return user;
+        return new UserDto
+        {
+            UserName = user.UserName ?? throw new Exception("Invalid username"),
+            Token = tokenService.CreateToken(user),
+        };
     }
 
     private async Task<bool> UsersExists(string username)
