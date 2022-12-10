@@ -143,3 +143,6 @@ https://valor-software.com/ngx-bootstrap/#/documentation
 * npm install font-awesome
 
  
+ **jwt token inspect**
+ * https://jwt.ms/
+ * https://jwt.io/
