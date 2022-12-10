@@ -82,7 +82,10 @@ https://crashedmind.github.io/PlantUMLHitchhikersGuide/index.html
 
 **global dotnet json file**
 * dotnet new globaljson
-
+ 
+ **jwt token inspect**
+ * https://jwt.ms/
+ * https://jwt.io/
 
 ## Entity Framework CLi
 
@@ -142,7 +145,7 @@ https://valor-software.com/ngx-bootstrap/#/documentation
 * npm install bootstrap@5
 * npm install font-awesome
 
- 
- **jwt token inspect**
- * https://jwt.ms/
- * https://jwt.io/
+**create a component**
+* ng g c <componentname>
+* ng g c --dry-run
+* ng g c --skip-tests --dry-run
