@@ -2,7 +2,7 @@
     <div class="container">
       <a class="navbar-brand" href="#">Carousel</a>
 
-        <ul class="navbar-nav me-auto mb-2 mb-md-0" *ngIf="loggedIn">
+        <ul class="navbar-nav me-auto mb-2 mb-md-0" *ngIf="this.accountService.currentUser$ | async">
           <li class="nav-item">
             <a class="nav-link active" href="#">Matchs</a>
           </li>
@@ -14,7 +14,7 @@
           </li>
         </ul>
 
-        <div class="dropdown" *ngIf="loggedIn" dropdown>
+        <div class="dropdown" *ngIf="this.accountService.currentUser$ | async" dropdown>
             <a class="dropdown-toggle text-light text-decration-none" dropdownToggle>Welcome User</a>
             <div class="dropdown-menu mt-3" *dropdownMenu>
                 <a class="dropdown-item">Edit Profile</a>
@@ -22,7 +22,7 @@
             </div>
         </div>
 
-        <form *ngIf="!loggedIn" #loginForm class="d-flex" role="search" (ngSubmit)="login()" autocomplete="off">
+        <form *ngIf="!(this.accountService.currentUser$ | async)" #loginForm class="d-flex" role="search" (ngSubmit)="login()" autocomplete="off">
           <input name="username"
           [(ngModel)]="model.username"
            class="form-control me-2" type="text" placeholder="Username">
