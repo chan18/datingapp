@@ -14,7 +14,7 @@ public static class IdentityServiceExtentions
             {
                 ValidateIssuerSigningKey = true,
                 IssuerSigningKey = new SymmetricSecurityKey(
-                    Encoding.UTF8.GetBytes(configuration["TokenKey"] ?? throw new Exception("Invalid configuration"))),
+                    Encoding.UTF8.GetBytes(configuration["TokenKey"] ?? throw new Exception("Missing TokenKey"))),
                 ValidateIssuer = false,
                 ValidateAudience = false,
             };
