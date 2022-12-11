@@ -1,5 +1,5 @@
-
 using API.Extentions;
+using API.Middleware;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -12,6 +12,8 @@ builder.Services.AddIdentityServices(builder.Configuration);
 //builder.Services.AddSwaggerGen();
 
 var app = builder.Build();
+
+app.UseMiddleware<ExceptionMiddleware>();
 
 // // Configure the HTTP request pipeline.
 // if (app.Environment.IsDevelopment())

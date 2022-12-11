@@ -167,3 +167,7 @@ https://bootswatch.com
 **create moudle**
 * ng g m --dry-run
 * ng g m --flat 
+
+**create http interceptors**
+* ng g interceptor <foldername>/<interceptorname> --skip-tests --dry-run
+* ng g interceptor <foldername>/<interceptorname> --skip-tests 

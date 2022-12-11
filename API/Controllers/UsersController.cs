@@ -20,14 +20,19 @@ public class UsersController : BaseApiController
     [HttpGet]
     public async Task<ActionResult<IEnumerable<AppUser>>> GetUsers()
     {
-        var users = await _context.Users.ToListAsync();
-        return users;
+        if (_context.Users is { } users)
+        {
+            return await users.ToListAsync();
+        }
+
+        return BadRequest("Please Loging");
     }
 
     [HttpGet("{id}")]
     public async Task<ActionResult<AppUser>> GetUsers(int id)
     {
-        if(await _context.Users.FindAsync(id) is { } user)
+        if( _context.Users is { } users &&
+            await users.FindAsync(id) is { } user)
         {
             return user;
         }

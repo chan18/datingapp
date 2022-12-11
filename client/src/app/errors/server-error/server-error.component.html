@@ -1,0 +1,25 @@
+<ng-container *ngIf="!error">
+    <div class="alert alert-dismissible alert-warning">
+        <h4 class="alert-heading">Internal server error</h4>
+        <p class="mb-0">Here you will see error stack trace in development mode.</p>
+    </div>
+</ng-container>
+<ng-container *ngIf="error">
+    <div class="alert alert-dismissible alert-warning">
+        <h4 class="alert-heading">Internal server error</h4>
+        <p class="mb-0">Here you will see error stack trace in development mode.</p>
+        <div class="alert alert-dismissible alert-danger">        
+            <h1 class="text-primary"> Error: {{error.message}}</h1>
+        </div>
+        
+        <div class="card text-white bg-danger   bg-primary mb-3">
+            <h3 class="card-header">Stack Trace</h3>
+            <div class="card-body">
+                <p class="card-text">
+                    {{error.details}}
+                </p>
+            </div>
+        </div>
+    </div>
+        
+</ng-container>

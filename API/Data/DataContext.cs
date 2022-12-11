@@ -13,5 +13,5 @@ public class DataContext : DbContext
         table name as users.
         users table have the props from AppUser class.
     */
-    public DbSet<AppUser> Users { get; set; }
+    public DbSet<AppUser>? Users { get; set; }
 }
