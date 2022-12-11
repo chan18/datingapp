@@ -144,6 +144,7 @@ update migrations dotnet ef database update --project .\API\API.csproj
 https://getbootstrap.com/docs/5.2/components/dropdowns/
 https://valor-software.com/ngx-bootstrap/#/
 https://valor-software.com/ngx-bootstrap/#/documentation
+https://bootswatch.com
 
 * npm install bootstrap@5
 * npm install font-awesome
