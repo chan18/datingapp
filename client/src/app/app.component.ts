@@ -12,20 +12,10 @@ export class AppComponent implements OnInit {
   title: string = 'Dating app';
   user: any;
 
-  constructor(private http: HttpClient, private accountService: AccountService)  { }
+  constructor(private accountService: AccountService)  { }
 
   ngOnInit(): void {
-    this.getUsers(); 
     this.setCurrentUser(); 
-  }
-
-  getUsers()
-  {
-    this.http.get<User>("https://localhost:7001/api/users").subscribe({
-      next: (response) => this.user = response,
-      error: error => console.log(error),
-      complete: () => console.log("Requesrt completed")
-    })
   }
 
   setCurrentUser()
