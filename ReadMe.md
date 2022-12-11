@@ -160,3 +160,5 @@ https://valor-software.com/ngx-bootstrap/#/documentation
 **list all problems in npm modules**
 * npm audit
 
+**create route guard**
+* ng g g
