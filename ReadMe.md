@@ -157,3 +157,6 @@ https://valor-software.com/ngx-bootstrap/#/documentation
 * ng g s <foldername>/<servicename>
 * ng g s <foldername>/<servicename> --skip-tests --dry-run
 
+**list all problems in npm modules**
+* npm audit
+
