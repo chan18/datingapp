@@ -1,5 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { NotFoundComponent } from './errors/not-found/not-found.component';
+import { ServerErrorComponent } from './errors/server-error/server-error.component';
 import { TestErrorComponent } from './errors/test-error/test-error.component';
 import { AuthGuard } from './guards/auth.guard';
 import { HomeComponent } from './home/home.component';
@@ -20,8 +22,10 @@ const routes: Routes = [
     {path: 'messages',  component: MessagesComponent},
   ]
 },  
+{path: 'server-error',  component: ServerErrorComponent},
+{path: 'not-found',  component: NotFoundComponent},
 {path: 'erros',  component: TestErrorComponent},
-{path: '**',  component: HomeComponent, pathMatch: 'full'},
+{path: '**',  component: NotFoundComponent, pathMatch: 'full'},
 ];
 
 @NgModule({

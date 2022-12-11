@@ -76,7 +76,7 @@ public class AccountsController : BaseApiController
             };
         }        
 
-        return BadRequest();
+        return Unauthorized("Invalid username");
     }
 
     private async Task<bool> UsersExists(string username)
