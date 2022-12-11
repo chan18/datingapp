@@ -14,7 +14,7 @@ public class UserRepository : IUserRepository
     }
 
     public async Task<IEnumerable<AppUser>> GetUserAsync() =>
-    (context.Users is { } users && await users.ToListAsync() is { } allUsers) ?  allUsers : new List<AppUser>();
+    (context.Users is { } users && await users.Include(p => p.Photos).ToListAsync() is { } allUsers) ?  allUsers : new List<AppUser>();
 
     public async Task<AppUser> GetUserByIdAsync(int id) =>
     (context.Users is { } users && await users.FindAsync(id) is { } user) ? user : new();
