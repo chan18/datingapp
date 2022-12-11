@@ -1,3 +1,5 @@
+using API.Extentions;
+
 namespace API.Entities;
 
 public class AppUser
@@ -19,5 +21,12 @@ public class AppUser
       public string Interests { get; set; } = "";
       public string City { get; set; } = "";
       public string Country { get; set; } = "";
+
+      // navigation properity.
       public List<Photo> Photos { get; set; } = new();
+
+      public int GetAge()
+      {
+            return DateOfBirth.CalculateAge();
+      }
 }
