@@ -22,10 +22,9 @@ public class UsersController : BaseApiController
     }
 
     [HttpGet]
-    public async Task<ActionResult<IEnumerable<MembersDto>>> GetUsers() => 
-    Ok(await userRepository.GetUserAsync() is { } users ? mapper.Map<IEnumerable<MembersDto>>(users) : BadRequest());
+    public async Task<ActionResult<IEnumerable<MembersDto>>> GetUsers() => Ok(await userRepository.GetMemberAsync());
     
 
     [HttpGet("{username}")]
-    public async Task<ActionResult<MembersDto>> GetUsers(string username) => await userRepository.GetUserByUserNameAsync(username) is { } user ? mapper.Map<MembersDto>(user) : BadRequest();
+    public async Task<ActionResult<MembersDto>> GetUsers(string username) =>  await userRepository.GetMemberAsync(username);
 }
