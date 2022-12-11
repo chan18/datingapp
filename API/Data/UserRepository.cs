@@ -20,7 +20,7 @@ public class UserRepository : IUserRepository
     (context.Users is { } users && await users.FindAsync(id) is { } user) ? user : new();
 
     public async Task<AppUser> GetUserByUserNameAsync(string username) => 
-    context.Users is { } users && await users.SingleOrDefaultAsync(x => x.UserName == username) is { } user ? user : new();
+    context.Users is { } users && await users.Include(p => p.Photos).SingleOrDefaultAsync(x => x.UserName == username) is { } user ? user : new();
 
     // save changes will hold how many got saved into the database.
     public async Task<bool> SaveAllAsync() => await context.SaveChangesAsync() > 0;
