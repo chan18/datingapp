@@ -23,7 +23,7 @@ public class BuggyController : BaseApiController
     [HttpGet("not-found")]
     public ActionResult<AppUser> GetNotFound()
     {
-        if (context.Users.Find(-1) is { } thing)
+        if (context.Users?.Find(-1) is { } thing)
         {
             return thing;
         }
@@ -36,7 +36,7 @@ public class BuggyController : BaseApiController
     [HttpGet("server-error")]
     public ActionResult<string> GetServerError()
     {
-        if(context.Users.Find(-1) is { } user)
+        if(context.Users?.Find(-1) is { } user)
         {
             return "found";
         }

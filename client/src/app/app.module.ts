@@ -16,6 +16,7 @@ import { MemberDetailComponent } from './members/member-detail/member-detail.com
 import { ListsComponent } from './lists/lists.component';
 import { MessagesComponent } from './messages/messages.component';
 import { SharedModule } from './modules/shared.module';
+import { TestErrorComponent } from './errors/test-error/test-error.component';
 
 
 @NgModule({
@@ -27,7 +28,8 @@ import { SharedModule } from './modules/shared.module';
     MemberListComponent,
     MemberDetailComponent,
     ListsComponent,
-    MessagesComponent
+    MessagesComponent,
+    TestErrorComponent
   ],
   imports: [
     BrowserAnimationsModule,

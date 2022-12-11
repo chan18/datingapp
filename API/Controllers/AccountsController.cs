@@ -37,7 +37,7 @@ public class AccountsController : BaseApiController
             PasswordSalt = hmac.Key,
         };
 
-        context.Users.Add(user);
+        context.Users?.Add(user);
         await context.SaveChangesAsync();
 
        return new UserDto
@@ -50,32 +50,43 @@ public class AccountsController : BaseApiController
     [HttpPost("login")]
     public async Task<ActionResult<UserDto>> Login(LoginDto loginDto)
     {
-        var user = await context.Users.SingleOrDefaultAsync(x => x.UserName == loginDto.Username);        
-        
-        if (user is null) return Unauthorized("Invalid username");
+        if ( context.Users is { } users &&
+             await users.SingleOrDefaultAsync(x =>
+             x.UserName == loginDto.Username) is { } user)
+        {        
+            if (user is null) return Unauthorized("Invalid username");
 
-        // password validation.
-        if (user.PasswordSalt is byte[] && user.PasswordHash is byte[])
-        {
-            using var hmac = new HMACSHA512(user.PasswordSalt);
-
-            var computedHash = hmac.ComputeHash(Encoding.UTF8.GetBytes(loginDto.Password));
-
-            for (int i = 0; i < computedHash.Length; i++)
+            // password validation.
+            if (user.PasswordSalt is byte[] && user.PasswordHash is byte[])
             {
-                if (computedHash[i] != user.PasswordHash[i]) return Unauthorized("Invalid password");
-            }
-        }
+                using var hmac = new HMACSHA512(user.PasswordSalt);
 
-        return new UserDto
-        {
-            UserName = user.UserName ?? throw new Exception("Invalid username"),
-            Token = tokenService.CreateToken(user),
-        };
+                var computedHash = hmac.ComputeHash(Encoding.UTF8.GetBytes(loginDto.Password));
+
+                for (int i = 0; i < computedHash.Length; i++)
+                {
+                    if (computedHash[i] != user.PasswordHash[i]) return Unauthorized("Invalid password");
+                }
+            }
+
+            return new UserDto
+            {
+                UserName = user.UserName ?? throw new Exception("Invalid username"),
+                Token = tokenService.CreateToken(user),
+            };
+        }        
+
+        return BadRequest();
     }
 
     private async Task<bool> UsersExists(string username)
     {
-        return await context.Users.AnyAsync(user => user.UserName == username.ToLower());
+        if (context.Users is { } users &&
+            await users.AnyAsync(user => user.UserName == username.ToLower()) is { } user)
+        {
+            return user;
+        }
+
+        return false;
     }
 }
