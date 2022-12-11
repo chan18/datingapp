@@ -82,7 +82,10 @@ https://crashedmind.github.io/PlantUMLHitchhikersGuide/index.html
 
 **global dotnet json file**
 * dotnet new globaljson
-
+ 
+ **jwt token inspect**
+ * https://jwt.ms/
+ * https://jwt.io/
 
 ## Entity Framework CLi
 
@@ -107,6 +110,9 @@ update migrations dotnet ef database update --project .\API\API.csproj
 
 **Up/Apply the migration**
 * dotnet ef database update --project .\API\API.csproj
+
+**delete databse**
+* dotnet ef database drop
 
 ## Angular
 
@@ -142,7 +148,12 @@ https://valor-software.com/ngx-bootstrap/#/documentation
 * npm install bootstrap@5
 * npm install font-awesome
 
- 
- **jwt token inspect**
- * https://jwt.ms/
- * https://jwt.io/
+**create a component**
+* ng g c <componentname>
+* ng g c --dry-run
+* ng g c --skip-tests --dry-run
+
+**creat a service**
+* ng g s <foldername>/<servicename>
+* ng g s <foldername>/<servicename> --skip-tests --dry-run
+
