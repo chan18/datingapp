@@ -144,6 +144,7 @@ update migrations dotnet ef database update --project .\API\API.csproj
 https://getbootstrap.com/docs/5.2/components/dropdowns/
 https://valor-software.com/ngx-bootstrap/#/
 https://valor-software.com/ngx-bootstrap/#/documentation
+https://bootswatch.com
 
 * npm install bootstrap@5
 * npm install font-awesome
@@ -157,3 +158,12 @@ https://valor-software.com/ngx-bootstrap/#/documentation
 * ng g s <foldername>/<servicename>
 * ng g s <foldername>/<servicename> --skip-tests --dry-run
 
+**list all problems in npm modules**
+* npm audit
+
+**create route guard**
+* ng g g
+
+**create moudle**
+* ng g m --dry-run
+* ng g m --flat 
