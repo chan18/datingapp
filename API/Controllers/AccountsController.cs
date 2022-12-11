@@ -21,7 +21,7 @@ public class AccountsController : BaseApiController
     }
 
     [HttpPost("register")] // POST: api/accounts/register
-    public async Task<ActionResult<AppUser>> Regsiter(RegisterDto registerDto)
+    public async Task<ActionResult<UserDto>> Regsiter(RegisterDto registerDto)
     {
         if(await UsersExists(registerDto.Username))
         {
@@ -40,7 +40,11 @@ public class AccountsController : BaseApiController
         context.Users.Add(user);
         await context.SaveChangesAsync();
 
-        return user;
+       return new UserDto
+        {
+            UserName = user.UserName ?? throw new Exception("Invalid username"),
+            Token = tokenService.CreateToken(user),
+        };
     }
 
     [HttpPost("login")]

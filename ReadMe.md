@@ -111,6 +111,9 @@ update migrations dotnet ef database update --project .\API\API.csproj
 **Up/Apply the migration**
 * dotnet ef database update --project .\API\API.csproj
 
+**delete databse**
+* dotnet ef database drop
+
 ## Angular
 
 **node version**
