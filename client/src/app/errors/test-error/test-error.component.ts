@@ -8,7 +8,7 @@ import { BASEAPIURL } from 'src/app/Constants/AppConstants';
   styleUrls: ['./test-error.component.css']
 })
 export class TestErrorComponent implements OnInit {
-  baseUrl = BASEAPIURL;
+  validationErorrs: string[] = [];
 
   constructor(private http: HttpClient) { }
 
@@ -53,7 +53,10 @@ export class TestErrorComponent implements OnInit {
   {
     this.http.post(BASEAPIURL + "accounts/register",{}).subscribe({
       next: response => console.log(response),
-      error: error => console.error(error), 
+      error: error => {
+        console.error(error);
+        this.validationErorrs = error;
+      }, 
     })
   }
 
