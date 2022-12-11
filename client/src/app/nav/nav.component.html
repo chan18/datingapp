@@ -1,16 +1,16 @@
 <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
     <div class="container">
-      <a class="navbar-brand" href="#">Carousel</a>
+      <a class="navbar-brand" routerLink="/" routerLinkActive="active">Carousel</a>
 
         <ul class="navbar-nav me-auto mb-2 mb-md-0" *ngIf="this.accountService.currentUser$ | async">
           <li class="nav-item">
-            <a class="nav-link active" href="#">Matchs</a>
+            <a class="nav-link" routerLink="/members" routerLinkActive="active">Matchs</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Lists</a>
+            <a class="nav-link" routerLink="/lists" routerLinkActive="active">Lists</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link">Messages</a>
+            <a class="nav-link" routerLink="/messages" routerLinkActive="active">Messages</a>
           </li>
         </ul>
 
