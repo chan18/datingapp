@@ -163,3 +163,7 @@ https://bootswatch.com
 
 **create route guard**
 * ng g g
+
+**create moudle**
+* ng g m --dry-run
+* ng g m --flat 
