@@ -46,7 +46,10 @@
                 <p>{{member.interests}}</p>                
             </tab>
             <tab heading="Photos">
-
+                <ngx-gallery [options]="galleryOptions"
+                             [images]="galleryImages"
+                             class="ngx-gallery">
+                            </ngx-gallery>
             </tab>
             <tab heading="Messages">
                 

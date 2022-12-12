@@ -141,13 +141,16 @@ update migrations dotnet ef database update --project .\API\API.csproj
 * typescript config
 
 **bootstrap**
-https://getbootstrap.com/docs/5.2/components/dropdowns/
-https://valor-software.com/ngx-bootstrap/#/
-https://valor-software.com/ngx-bootstrap/#/documentation
-https://bootswatch.com
+https://getbootstrap.com/docs/5.2/components/dropdowns/  
+https://valor-software.com/ngx-bootstrap/#/  
+https://valor-software.com/ngx-bootstrap/#/documentation  
+https://bootswatch.com  
+https://github.com/kolkov/ngx-gallery  
+
 
 * npm install bootstrap@5
 * npm install font-awesome
+* npm install @kolkov/ngx-gallery --legacy-peer-deps
 
 **create a component**
 * ng g c <componentname>
@@ -170,4 +173,5 @@ https://bootswatch.com
 
 **create http interceptors**
 * ng g interceptor <foldername>/<interceptorname> --skip-tests --dry-run
-* ng g interceptor <foldername>/<interceptorname> --skip-tests 
+* ng g interceptor <foldername>/<interceptorname> --skip-tests
+
