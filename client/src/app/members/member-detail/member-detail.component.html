@@ -1,1 +1,44 @@
-<h1 *ngIf="member">{{member.knownAs}}</h1>
+<!-- <div class="card border-secondary">
+    <div class="card-header">Header</div>
+    <div class="card-body">
+      <h4 class="card-title">Secondary card title</h4>
+      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+    </div>
+</div> -->
+
+<div class="row" *ngIf="member">
+    <div class="col-4">
+        <div class="card border-secondary">
+            <div class="card-header">{{member.userName}}</div>
+            <img src="{{member.photoUrl || './assets/user.png'}}" alt="{{member.knownAs}}" class="card-img-top img-thumbnail">
+            <div class="card-body">
+                <div>
+                    <strong>Location:</strong>
+                    <p>{{member.city}} {{member.country}}</p>
+                </div>
+                <div>
+                    <strong>Age:</strong>
+                    <p>{{member.age}}</p>
+                </div>
+                <div>
+                    <strong>Last Active:</strong>
+                    <p>{{member.lastActive}}</p>
+                </div>
+                <div>
+                    <strong>Member Since:</strong>
+                    <p>{{member.created}}</p>
+                </div>
+            </div>
+            <div class="card-footer">
+                <div class="btn-group d-flex">
+                    <button class="btn btn-primary">
+                        Like
+                    </button>
+                    <button class="btn btn-success">
+                        Messages
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
