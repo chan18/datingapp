@@ -231,6 +231,5 @@ _Pvt_Extensions
 # FAKE - F# Make
 .fake/
 
-API/appsettings.json
-
 API/datingapp.db
+API/appsettings.json
