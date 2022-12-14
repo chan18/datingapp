@@ -59,7 +59,13 @@ public class UsersController : BaseApiController
                     IsMain = user.Photos.Count == 0 ? true : false,
                 }; 
                 user.Photos.Add(photo);
-                if (await userRepository.SaveAllAsync()) return mapper.Map<PhotoDto>(photo);
+
+                if (await userRepository.SaveAllAsync()) 
+                    return CreatedAtAction(
+                            nameof(GetUsers),
+                            new {username = user.UserName},
+                            mapper.Map<PhotoDto>(photo));
+
                 return BadRequest("Problem adding photo");
             }
             else if (result is { } errors)
