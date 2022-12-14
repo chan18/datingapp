@@ -1,5 +1,7 @@
 using System.Security.Claims;
 using API.DTOs;
+using API.Entities;
+using API.Extentions;
 using API.Interface;
 using AutoMapper;
 using Microsoft.AspNetCore.Authorization;
@@ -12,11 +14,14 @@ public class UsersController : BaseApiController
 {
     private readonly IUserRepository userRepository;
     private readonly IMapper mapper;
+    private readonly IPhotoService photoService;
 
-    public UsersController(IUserRepository userRepository,IMapper mapper)
+    public UsersController(IUserRepository userRepository,IMapper mapper, 
+        IPhotoService photoService)
     {
         this.userRepository = userRepository;
         this.mapper = mapper;
+        this.photoService = photoService;
     }
 
     [HttpGet]
@@ -29,15 +34,40 @@ public class UsersController : BaseApiController
     [HttpPut]
     public async Task<ActionResult> UpdateUser(MemberUpdateDto memberUpdateDto)
     {
-        var username = User.FindFirst(ClaimTypes.NameIdentifier)?.Value ?? string.Empty;
-        var user = await userRepository.GetUserByUserNameAsync(username);
+        if(await userRepository.GetUserByUserNameAsync(User.GetUsername()) is { } user)
+        {
+            mapper.Map(memberUpdateDto, user);    
+            if(await userRepository.SaveAllAsync()) return NoContent();
+            return BadRequest();
+        }
+        return NotFound();
+    }
 
-        if(user is null) return NotFound();
+    [HttpPost("add-photo")]
+    public async Task<ActionResult<PhotoDto>> AddPhoto(IFormFile file)
+    {
+        if (await userRepository.GetUserByUserNameAsync(User.GetUsername()) is { } user)
+        {
+            var result = await photoService.AddPhotoAsync(file);
 
-        mapper.Map(memberUpdateDto, user);
+            if (result is {  } sucessfullResult) 
+            {
+                var photo = new Photo()
+                {
+                    Url = sucessfullResult.SecureUrl.AbsoluteUri,
+                    PublicId = sucessfullResult.PublicId, 
+                    IsMain = user.Photos.Count == 0 ? true : false,
+                }; 
+                user.Photos.Add(photo);
+                if (await userRepository.SaveAllAsync()) return mapper.Map<PhotoDto>(photo);
+                return BadRequest("Problem adding photo");
+            }
+            else if (result is { } errors)
+            {
+                return BadRequest(errors.Error.Message);
+            }
+        }
 
-        if(await userRepository.SaveAllAsync()) return NoContent();
-
-        return BadRequest();
+        return NotFound();
     }
 }
