@@ -50,7 +50,7 @@ public class UsersController : BaseApiController
         {
             var result = await photoService.AddPhotoAsync(file);
 
-            if (result is {  } sucessfullResult) 
+            if (result is { } sucessfullResult) 
             {
                 var photo = new Photo()
                 {
@@ -72,6 +72,28 @@ public class UsersController : BaseApiController
             {
                 return BadRequest(errors.Error.Message);
             }
+        }
+
+        return NotFound();
+    }
+
+    [HttpPut("set-main-photo/{photoId}")]
+    public async Task<ActionResult> SetMainPhoto(int photoId)
+    {
+        if (await userRepository.GetUserByUserNameAsync(User.GetUsername()) is { } user &&
+            user.Photos.FirstOrDefault(x => x.Id == photoId) is { } photo)
+        {
+            if (photo.IsMain) return BadRequest("this is already your main photo");
+
+            if (user.Photos.FirstOrDefault(x => x.IsMain) is { } currentMain) {
+                currentMain.IsMain = false;
+            }
+
+            photo.IsMain = true;
+
+            if (await userRepository.SaveAllAsync()) return NoContent();
+
+            return BadRequest("Problem setting the main ptoto");            
         }
 
         return NotFound();
