@@ -146,6 +146,8 @@ https://valor-software.com/ngx-bootstrap/#/
 https://valor-software.com/ngx-bootstrap/#/documentation  
 https://bootswatch.com  
 https://github.com/kolkov/ngx-gallery  
+https://www.npmjs.com/package/ngx-spinner, https://napster2210.github.io/ngx-spinner/  
+
 
 
 * npm install bootstrap@5
