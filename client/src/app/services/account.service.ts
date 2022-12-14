@@ -19,10 +19,8 @@ export class AccountService {
     return this.http.post<User>(this.baseUrl + "accounts/login", model).pipe(
       map( (response: User) => {
         const user = response;
-        console.log(user);
         if (user) {
-          localStorage.setItem('user',JSON.stringify(user));
-          this.currentUserSource.next(user);
+          this.setCurrentUser(user);
         }
       })
     )
@@ -34,8 +32,7 @@ export class AccountService {
       map(user => {
         if (user)
         {
-          localStorage.setItem('user',JSON.stringify(user));
-          this.currentUserSource.next(user);
+          this.setCurrentUser(user);
         }
       })
     )
@@ -43,6 +40,7 @@ export class AccountService {
 
   setCurrentUser(user: User)
   {
+    localStorage.setItem('user',JSON.stringify(user));
     this.currentUserSource.next(user);    
   }
 

@@ -51,11 +51,9 @@ public class AccountsController : BaseApiController
     public async Task<ActionResult<UserDto>> Login(LoginDto loginDto)
     {
         if ( context.Users is { } users &&
-             await users.SingleOrDefaultAsync(x =>
+             await users.Include(x => x.Photos).SingleOrDefaultAsync(x =>
              x.UserName == loginDto.Username) is { } user)
-        {        
-            if (user is null) return Unauthorized("Invalid username");
-
+        {  
             // password validation.
             if (user.PasswordSalt is byte[] && user.PasswordHash is byte[])
             {
@@ -73,6 +71,7 @@ public class AccountsController : BaseApiController
             {
                 UserName = user.UserName ?? throw new Exception("Invalid username"),
                 Token = tokenService.CreateToken(user),
+                PhotoUrl = user.Photos.FirstOrDefault(x => x.IsMain)?.Url ?? string.Empty,
             };
         }        
 

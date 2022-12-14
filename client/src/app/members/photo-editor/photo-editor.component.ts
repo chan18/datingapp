@@ -8,10 +8,10 @@ import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-phot-editor',
-  templateUrl: './phot-editor.component.html',
-  styleUrls: ['./phot-editor.component.css']
+  templateUrl: './photo-editor.component.html',
+  styleUrls: ['./photo-editor.component.css']
 })
-export class PhotEditorComponent implements OnInit {
+export class PhootEditorComponent implements OnInit {
   @Input() member: Member | undefined;
   uploader: FileUploader | undefined;
   hasBaseDropZoneOver = false;
