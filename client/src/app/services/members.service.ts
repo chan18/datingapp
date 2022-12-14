@@ -8,7 +8,7 @@ import { Member } from '../models/memeber';
   providedIn: 'root'
 })
 export class MembersService {
-  baseUrl = environment.apirul;
+  baseUrl = environment.apiurl;
   members: Member[] = [];
 
   constructor(private http: HttpClient) { }
