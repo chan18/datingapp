@@ -8,7 +8,7 @@ import { Member } from '../models/memeber';
   providedIn: 'root'
 })
 export class MembersService {
-  baseUrl = environment.apirul;
+  baseUrl = environment.apiurl;
   members: Member[] = [];
 
   constructor(private http: HttpClient) { }
@@ -30,6 +30,7 @@ export class MembersService {
     if(member) return of(member);
     return this.http.get<Member>(this.baseUrl + 'users/' + username);
   }
+
   updateMember(member: Member)
   {
     return this.http.put(this.baseUrl + 'users', member).pipe(
@@ -39,4 +40,15 @@ export class MembersService {
       })
     );
   }
+
+  setMainPhoto(photoId: number)
+  {
+    return this.http.put(this.baseUrl + 'users/set-main-photo/' + photoId, {});
+  }
+
+  deletePhoto(photoId: number)
+  {
+    return this.http.delete(this.baseUrl + 'users/delete-photo/' + photoId);
+  }
+  
 }
