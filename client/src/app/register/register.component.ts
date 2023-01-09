@@ -25,7 +25,7 @@ export class RegisterComponent implements OnInit {
       error: error => this.toastr.error(error.error),
     })
   }
-
+      
   cancel()
   {
     this.cancelRegister.emit(false);

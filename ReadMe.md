@@ -1,3 +1,8 @@
+How to build and run this project?
+1. navigate to client folder and run `ng serve` this will spin up a ng build and serve angular front end app.
+2. navigate to root of the folder and run a  run powershell script, This will clean, build and serve the dotnet app.
+3. watch powershell with watch for file change and rebuild for continues development.
+
 .NET
 
     dotnet --info
